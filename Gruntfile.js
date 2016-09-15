@@ -79,3 +79,24 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-hapi');
 
 };
+
+module.exports = function(grunt) {
+    
+    grunt.registerTask('default', 'Testing out Grunt logging and task callbacks', ['watch']);
+    
+    grunt.registerTask('fun', 'This task is for fun only', function() {
+        grunt.log.writeln('This the *fun* Grunt task');
+    });
+    
+    grunt.registerTask('serious', 'This task is for serious stuff only', function() {
+        grunt.log.writeln('Wipe that smirk off your facel this is serious.');
+    });
+    
+    grunt.initConfig({
+        watch: {
+            files: ['Gruntfile.js']
+        }
+    });
+    
+    grunt.loadNpmTasks('grunt-contrib-watch');
+};
