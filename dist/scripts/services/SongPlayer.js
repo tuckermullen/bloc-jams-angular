@@ -8,6 +8,7 @@
         */
         
         var currentAlbum = Fixtures.getAlbum();
+        SongPlayer.currentArtist = currentAlbum.artist;
         
         /**
         * @desc Buzz object audio file
@@ -99,6 +100,10 @@
         SongPlayer.next = function() {
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
+            
+            if (currentSongIndex >= currentAlbum.songs.length) {
+                currentSongIndex = 0;
+            }
         };
         
         /**
