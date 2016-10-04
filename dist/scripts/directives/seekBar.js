@@ -32,10 +32,7 @@
                 };
                 
                 scope.thumbStyle = function() {
-                    return;
-                    /**
-                    * What do we return here?
-                    **/
+                    return {left: percentString()};
                 };
                 
                 scope.onClickSeekBar = function(event) {
