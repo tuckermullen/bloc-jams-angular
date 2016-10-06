@@ -32,9 +32,17 @@
                 preload: true
             });
             
+            currentBuzzObject.setVolume(SongPlayer.volume);
+            
             currentBuzzObject.bind('timeupdate', function() {
                 $rootScope.$apply(function() {
                     SongPlayer.currentTime = currentBuzzObject.getTime();
+                });
+            });
+            
+            currentBuzzObject.bind('volumechange', function() {
+                $rootScope.$apply(function() {
+                    SongPlayer.volume = currentBuzObject.getVolume();
                 });
             });
             
@@ -61,6 +69,12 @@
         * @type {Number}
         */
         SongPlayer.currentTime = null;
+        
+        /**
+        * @desc The volume of the song player
+        * @type {Number}
+        */
+        SongPlayer.volume = null;
         
         /**
         * @function playSong
@@ -126,6 +140,17 @@
             if (currentBuzzObject) {
                 currentBuzzObject.setTime(time);
             }
+        };
+        
+        /**
+        * @function setVolume
+        * @desc Set volume of the song player
+        * @param {Number} volume
+        */
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume)
+            };
         };
         
         /**
